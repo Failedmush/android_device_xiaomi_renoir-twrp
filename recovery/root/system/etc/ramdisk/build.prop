@@ -1,0 +1,22 @@
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.bootimage.brand=Xiaomi
+ro.product.bootimage.device=lahaina
+ro.product.bootimage.manufacturer=Xiaomi
+ro.product.bootimage.model=Xiaomi 12 Lite
+ro.product.bootimage.name=twrp_lahaina
+ro.bootimage.build.date=Tue Dec 19 22:16:20 MSK 2023
+ro.bootimage.build.date.utc=1703013380
+ro.bootimage.build.fingerprint=Xiaomi/twrp_lahaina/lahaina:99.87.36/SP2A.220405.004/user12192216:eng/test-keys
+ro.bootimage.build.id=SP2A.220405.004
+ro.bootimage.build.tags=test-keys
+ro.bootimage.build.type=eng
+ro.bootimage.build.version.incremental=eng.user.20231219.221725
+ro.bootimage.build.version.release=99.87.36
+ro.bootimage.build.version.release_or_codename=99.87.36
+ro.bootimage.build.version.sdk=32
+# Auto-added by post_process_props.py
+persist.sys.usb.config=none
+# end of file
