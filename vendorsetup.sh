@@ -25,7 +25,7 @@ if [ -f $FOX_MANIFEST_ROOT/bootable/recovery/orangefox_defaults.go -a -f $FOX_MA
 	#export PLATFORM_VERSION="11.0"
 	if [ -z "$TW_DEFAULT_LANGUAGE" ]; then
 		unset TW_DEFAULT_LANGUAGE
-		export TW_DEFAULT_LANGUAGE="zh_CH"
+		export TW_DEFAULT_LANGUAGE="en"
 	fi
 	export OF_KEEP_FORCED_ENCRYPTION=1
 	export OF_PATCH_AVB20=1
