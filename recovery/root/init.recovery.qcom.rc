@@ -47,6 +47,7 @@ on init
     start boot-hal-1-1
 
 on boot
+    start vendor.qti.vibrator
     setprop sys.usb.config adb
 
 on property:twrp.modules.loaded=true
