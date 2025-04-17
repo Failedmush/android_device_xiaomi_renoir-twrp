@@ -79,3 +79,8 @@ service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qt
     group root
     disabled
     seclabel u:r:recovery:s0
+ service vendor.qti.vibrator /vendor/bin/hw/recovery/root/vendor/lib64/vendor.qti.hardware.vibrator.impl.so
+    class hal
+    user system
+    group system input
+    seclabel u:r:recovery:s0
