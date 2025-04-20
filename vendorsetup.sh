@@ -64,7 +64,7 @@ if [ -f $FOX_MANIFEST_ROOT/bootable/recovery/orangefox_defaults.go -a -f $FOX_MA
 	export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
 
 	# -- add settings for R11 --
-	export FOX_R11=1
+	export FOX_R11=3
 	export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
 	export OF_QUICK_BACKUP_LIST="/boot;/data;"
 	# -- end R11 settings --
