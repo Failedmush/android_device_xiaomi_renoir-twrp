@@ -84,7 +84,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_DYNAMIC_FULL_SIZE=9126805504
 
 	# R11.3 Settings
-	export FOX_VERSION="R12.1"
+	export FOX_VERSION="R11.3"
 	export OF_MAINTAINER="failedmush"
 	export FOX_BUILD_TYPE="Beta"
 	export FOX_RESET_SETTINGS="disabled"
