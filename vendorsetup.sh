@@ -17,7 +17,7 @@
 #
 # 	Please maintain this if you use this script or any part of it
 #
-FDEVICE="lisa"
+FDEVICE="renoir"
 #set -o xtrace
 
 fox_get_target_device() {
@@ -83,18 +83,13 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	# full size
 	export OF_DYNAMIC_FULL_SIZE=9126805504
 
-	# R11.1 Settings
+	# R11.3 Settings
 	export FOX_VERSION="R12.1"
-	export OF_MAINTAINER="dkpost3"
+	export OF_MAINTAINER="failedmush"
 	export FOX_BUILD_TYPE="Beta"
-	export FOX_VARIANT="vBaR"
 	export FOX_RESET_SETTINGS="disabled"
 
-	# vendor_boot-as-recovery
-	if [ "$OF_VENDOR_BOOT_RECOVERY" = "1" ]; then
-	   export FOX_RESET_SETTINGS="disabled"
-	   export FOX_VARIANT="vBaR"
-	fi
+	
 
 	# let's see what are our build VARs
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
