@@ -30,7 +30,6 @@ export OF_DYNAMIC_FULL_SIZE=9126805504
 export FOX_VERSION="R12.1"
 export OF_MAINTAINER="failedmush"
 export FOX_BUILD_TYPE="unofficial"
-export FOX_VARIANT="vBaR"
 export FOX_RESET_SETTINGS="disabled"
 
 export OF_QUICK_BACKUP_LIST="/boot"
