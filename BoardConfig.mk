@@ -153,36 +153,31 @@ TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_LIBRESETPROP := true
 			     
-# TWRP specific build flags
+# TWRP Configuration
 TW_THEME := portrait_hdpi
-ifeq ($(TW_DEVICE_VERSION),)
-TW_DEVICE_VERSION=12.0
-endif
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_EXCLUDE_TWRPAPP := true
 TW_EXTRA_LANGUAGES := true
-TW_INCLUDE_NTFS_3G := true
-TW_USE_TOOLBOX := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
-TW_MAX_BRIGHTNESS := 2047
-ifeq ($(TW_DEFAULT_LANGUAGE),)
-TW_DEFAULT_LANGUAGE := EN
-endif
-TW_DEFAULT_BRIGHTNESS := 200
-TW_STATUS_ICONS_ALIGN := center
-TW_Y_OFFSET := 140
-TW_H_OFFSET := -130
-TWRP_INCLUDE_LOGCAT := true
-TARGET_USES_LOGD := true
-TW_NO_SCREEN_BLANK := true
+TW_DEFAULT_BRIGHTNESS := 2047
+TW_USE_TOOLBOX := true
+TW_INCLUDE_NTFS_3G := true
+TW_INCLUDE_REPACKTOOLS := true
+TW_INCLUDE_RESETPROP := true
+TW_Y_OFFSET := 80
+TW_H_OFFSET := -80
 TW_EXCLUDE_APEX := true
-TW_HAS_EDL_MODE := true
-TW_SUPPORT_INPUT_AIDL_HAPTICS :=false
-TW_LOAD_VENDOR_MODULES := "fts_touch_spi_k2.ko focaltech_touch.ko goodix_core.ko goodix_ts_gesture.ko goodix_ts_tools.ko adsp_loader_dlkm.ko qti_battery_charger.ko qti_battery_charger_main.ko qti_battery_charger_main_$(PRODUCT_RELEASE_NAME).ko exfat.ko"
-TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone20/temp"
-TW_BATTERY_SYSFS_WAIT_SECONDS := 5
-TW_BACKUP_EXCLUSIONS := /data/fonts
 TW_FRAMERATE := 60
-TW_DELAY_TOUCH_INIT_MS := 1000
+TW_USE_FSCRYPT_POLICY := 2
+TW_NO_SCREEN_BLANK := true
+TW_BACKUP_EXCLUSIONS := /data/fonts
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file"
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone17/temp"
+TW_DEFAULT_EXTERNAL_STORAGE := true
+#TW_INTERNAL_STORAGE_PATH := "/data/media"
+#TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+#TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+#TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
