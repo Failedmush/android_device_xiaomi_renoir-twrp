@@ -1,62 +1,59 @@
+
 #
-# Copyright (C) 2020 The TwrpBuilder Open-Source Project
+#	This file is part of the OrangeFox Recovery Project
+# 	Copyright (C) 2024-2025 The OrangeFox Recovery Project
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+#	OrangeFox is free software: you can redistribute it and/or modify
+#	it under the terms of the GNU General Public License as published by
+#	the Free Software Foundation, either version 3 of the License, or
+#	any later version.
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+#	OrangeFox is distributed in the hope that it will be useful,
+#	but WITHOUT ANY WARRANTY; without even the implied warranty of
+#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#	GNU General Public License for more details.
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# 	This software is released under GPL version 3 or any later version.
+#	See <http://www.gnu.org/licenses/>.
 #
-
-# Configure base.mk
-$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
-
-# Configure core_64_bit_only.mk
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
-
-# Configure gsi_keys.mk
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
-
-# Configure Virtual A/B
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
-
-# Configure SDCard replacement functionality
-$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
-
-# Configure twrp
-$(call inherit-product, vendor/twrp/config/common.mk)
-
-PRODUCT_PACKAGES += \
-    bootctrl.xiaomi_sm8350.recovery \
-    android.hardware.boot@1.1-impl-qti.recovery
-
-# SHIPPING API
-PRODUCT_SHIPPING_API_LEVEL := 30
-# VNDK API
-PRODUCT_TARGET_VNDK_VERSION := 31
-
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH)
-
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
-
-# otacert
+# 	Please maintain this if you use this script or any part of it
+#
+# include (not inherit-product) the common settings - works better with device-specific files
+-include $(COMMON_PATH)/device-common.mk
+TW_DEFAULT_LANGUAGE     := en
+TW_USE_TOOLBOX          := true
+TW_INCLUDE_NTFS_3G      := true
+TW_INCLUDE_FUSE_EXFAT   := true
+TW_INCLUDE_FUSE_NTFS    := true
+TW_INCLUDE_REPACKTOOLS  := true
+TW_INCLUDE_LIBRESETPROP := true
+TW_EXTRA_LANGUAGES      := true
+TW_EXCLUDE_APEX         := true
+TW_INCLUDE_FASTBOOTD    := true
+# API
+PRODUCT_SHIPPING_API_LEVEL  := 30
+BOARD_SHIPPING_API_LEVEL := 30
+SHIPPING_API_LEVEL := 30
+PRODUCT_TARGET_VNDK_VERSION := 33
+# OEM otacert
 PRODUCT_EXTRA_RECOVERY_KEYS += \
-    $(DEVICE_PATH)/security/miui_releasekey
-
-# PRODUCT_RELEASE_NAME ro.twrp.device.name
-PRODUCT_PROPERTY_OVERRIDES += ro.twrp.device.name=$(PRODUCT_RELEASE_NAME)
-
-TWRP_REQUIRED_MODULES += \
-    magisk_prebuilt
-
-ifneq ($(TW_SKKK_VER_CODE),)
-PRODUCT_PROPERTY_OVERRIDES += ro.twrp.version.skkk.code=$(TW_SKKK_VER_CODE)
-endif
+    vendor/recovery/security/miui
+# Enable updating of APEXes
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+# Enable virtual A/B OTA
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+# clear this, so that the device-specifc recovery/root/ folder is included automatically by the build system
+# requires including, rather than inheriting the common settings
+TARGET_RECOVERY_DEVICE_DIRS :=
+# copy recovery/root/ from the common directory
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(COMMON_PATH)/twrp/recovery/root/,$(TARGET_COPY_OUT_RECOVERY)/root/)
+# copy recovery/root/ from the device directory (if it exists)
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/recovery/root/,$(TARGET_COPY_OUT_RECOVERY)/root/)
+# some OrangeFox-specific settings
+$(call inherit-product, $(DEVICE_PATH)/fox_garnet.mk)
+# modules
+PRODUCT_PACKAGES += \
+    renoir_modules
+#
