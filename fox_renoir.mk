@@ -41,14 +41,17 @@ OF_UNBIND_SDCARD_F2FS := 1
 
 # maximum permissible splash image size (in kilobytes); do *NOT* increase!
 OF_SPLASH_MAX_SIZE := 130
+#
+"OF_MAINTAINER"
+  - Failedmush
 
 # screen settings
 OF_SCREEN_H := 2400
 OF_STATUS_H := 100
 OF_STATUS_INDENT_LEFT :=  48
-OF_STATUS_INDENT_RIGHT := 48
-OF_HIDE_NOTCH := 0
-OF_CLOCK_POS := 0
+OF_STATUS_INDENT_RIGHT := 52
+OF_HIDE_NOTCH := 1
+OF_CLOCK_POS := 1 
 
 # number of list options before scrollbar creation
 OF_OPTIONS_LIST_NUM := 9
@@ -56,4 +59,3 @@ OF_OPTIONS_LIST_NUM := 9
 # build all the partition tools
 OF_ENABLE_ALL_PARTITION_TOOLS := 1
 #
-
