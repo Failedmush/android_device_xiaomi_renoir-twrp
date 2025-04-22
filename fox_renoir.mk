@@ -47,7 +47,7 @@ OF_SPLASH_MAX_SIZE := 130
 
 # screen settings
 export OF_SCREEN_H=2400
-export OF_STATUS_H=80
+export OF_STATUS_H=70
 export OF_STATUS_INDENT_LEFT=48
 export OF_STATUS_INDENT_RIGHT=48
 export OF_HIDE_NOTCH=1
