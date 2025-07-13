@@ -51,7 +51,7 @@ export OF_STATUS_H=100
 export OF_STATUS_INDENT_LEFT=48
 export OF_STATUS_INDENT_RIGHT=48
 export OF_HIDE_NOTCH=1
-export OF_CLOCK_POS=1
+export OF_CLOCK_POS=150
 
 # number of list options before scrollbar creation
 OF_OPTIONS_LIST_NUM := 9
